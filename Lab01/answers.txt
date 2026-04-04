@@ -1,0 +1,5 @@
+6.1
+- If a user clicks the "Cancel" button, the second dialog will display: "You've chosen: No".
+- How to customize the options to users, instead of using "showConfirmDialog", we will use
+"showOptionDialog", because showOptionDialog allows coder to customize button text
+
