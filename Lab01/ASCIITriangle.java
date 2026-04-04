@@ -1,3 +1,5 @@
+// Lab 01
+// Assignment 6.3
 import java.util.Scanner;
 
 public class ASCIITriangle {

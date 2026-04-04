@@ -1,3 +1,6 @@
+// Lab 01
+// Assignment 6.2
+
 import java.util.Scanner;
 
 public class InputFromKeyboard {

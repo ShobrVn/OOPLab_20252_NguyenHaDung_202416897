@@ -1,3 +1,6 @@
+// Lab 01
+// Assignment 6.1
+
 import javax.swing.JOptionPane;
 
 public class ChoosingOption {
