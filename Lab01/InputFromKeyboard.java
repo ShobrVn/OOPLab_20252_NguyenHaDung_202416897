@@ -9,8 +9,10 @@ public class InputFromKeyboard {
         
         System.out.print("What's your name? ");
         String strName = keyboard.nextLine();
+
         System.out.print("How old are you? ");
         int iAge = keyboard.nextInt();
+        
         System.out.print("How tall are you? ");
         double dHeight = keyboard.nextDouble(); 
 
