@@ -6,4 +6,3 @@
 and “I don’t”?
 - To customize the options to users, instead of using "showConfirmDialog", we will use
 "showOptionDialog", because showOptionDialog allows coder to customize button text
-
