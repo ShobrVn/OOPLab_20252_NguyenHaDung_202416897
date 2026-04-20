@@ -1,9 +1,11 @@
 // Lab 01
 // Assignment 6.4
 
+import java.util.Scanner;
+
 public class DaysInMonths {
     public static void main(String[] args) {
-        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         int month;
         do {

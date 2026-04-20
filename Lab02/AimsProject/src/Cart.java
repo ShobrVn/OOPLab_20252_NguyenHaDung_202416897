@@ -1,3 +1,5 @@
+package AimsProject.src;
+
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private DigitalVideoDisc[] itemsOrdered = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
@@ -6,12 +8,13 @@ public class Cart {
     public void addDigitalVideoDisc(DigitalVideoDisc disc) {
         if (amountOrdered >= MAX_NUMBERS_ORDERED) {
             System.out.println("The cart is full.");
-        } else {
+        }
+        else {
             itemsOrdered[amountOrdered] = disc;
             amountOrdered++;
             System.out.println("The disc \"" + disc.getTitle() + "\" has been added.");
             if (amountOrdered == MAX_NUMBERS_ORDERED - 1) {
-                System.out.println("The cart is almost full!");
+                System.out.println("The cart is almost full.");
             }
         }
     }
@@ -31,11 +34,11 @@ public class Cart {
             }
         }
         if (!found) {
-            System.out.println("The disc was not found in the cart.");
+            System.out.println("Cannot find the disc \"" + disc.getTitle() + "\" in the cart.");
         }
     }
 
-    public int getAmmountOrdered() {
+    public int getAmountOrdered() {
         return amountOrdered;
     }
 
