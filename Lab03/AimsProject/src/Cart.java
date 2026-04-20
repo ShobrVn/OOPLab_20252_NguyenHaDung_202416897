@@ -19,6 +19,12 @@ public class Cart {
         }
     }
 
+    public void addDigitalVideoDisc(DigitalVideoDisc[] discs) {
+        for (DigitalVideoDisc disc : discs) {
+            addDigitalVideoDisc(disc);
+        }
+    }
+
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         boolean found = false;
         for (int i = 0; i < amountOrdered; i++) {
