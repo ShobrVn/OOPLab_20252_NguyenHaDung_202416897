@@ -63,12 +63,14 @@ public class Cart {
 
     public void displayCart() {
         for (int i = 0; i < amountOrdered; i++) {
-            System.out.println((i + 1) + ". " + itemsOrdered[i].getTitle() 
-                + " - " + itemsOrdered[i].getCategory()
-                + " - " + itemsOrdered[i].getDirector()
-                + " - " + itemsOrdered[i].getLength() + " min"
-                + " - " + itemsOrdered[i].getCost());
+            System.out.println((i + 1) + ". " + itemsOrdered[i].toString());
         }
         System.out.println("Total cost: " + totalCost());
+    }
+
+    public void print() {
+        System.out.println("***********************CART***********************");
+        displayCart();
+        System.out.println("************************************************");
     }
 }
