@@ -17,5 +17,18 @@ public class CartTest {
 
         // Test the print method
         cart.print();
+        // Test the SearchByID method
+        System.out.println("Search for ID 1: ");
+        cart.searchById(1);
+        System.out.println("Search for ID 5: ");
+        cart.searchById(5);
+
+        // Test the searchByTitle method
+        System.out.println("Search for 'Star': ");
+        cart.searchByTitle("Star");
+        System.out.println("Search for 'Aladdin': ");
+        cart.searchByTitle("Aladdin");
+        System.out.println("Search for 'Batman': ");
+        cart.searchByTitle("Batman");
     }
 }
