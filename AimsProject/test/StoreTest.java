@@ -1,7 +1,7 @@
-package AimsProject;
+package AimsProject.test;
 
-import AimsProject.src.DigitalVideoDisc;
-import AimsProject.src.Store;
+import AimsProject.src.disc.DigitalVideoDisc;
+import AimsProject.src.store.Store;
 
 public class StoreTest {
     public static void main(String[] args) {

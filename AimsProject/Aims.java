@@ -1,4 +1,7 @@
-package AimsProject.src;
+package AimsProject;
+
+import AimsProject.src.disc.DigitalVideoDisc;
+import AimsProject.src.cart.Cart;
 
 public class Aims {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
-package AimsProject.src;
+package AimsProject.src.store;
 
-import AimsProject.src.DigitalVideoDisc;
+import AimsProject.src.disc.DigitalVideoDisc;
 
 public class Store {
     private DigitalVideoDisc[] itemsInStore;
