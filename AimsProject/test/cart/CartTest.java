@@ -1,4 +1,4 @@
-package AimsProject.test;
+package AimsProject.test.cart;
 
 import AimsProject.src.disc.DigitalVideoDisc;
 import AimsProject.src.cart.Cart;
