@@ -1,6 +1,6 @@
-package AimsProject.src.cart;
+package src.cart;
 
-import AimsProject.src.disc.DigitalVideoDisc;
+import src.disc.DigitalVideoDisc;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
