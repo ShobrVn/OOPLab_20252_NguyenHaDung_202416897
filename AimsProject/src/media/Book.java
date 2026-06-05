@@ -8,7 +8,6 @@ public class Book extends Media {
 
     public Book(String title, String category, float cost) {
         super(title, category, cost);
-        this.authors = new ArrayList<>();
     }
     
     public List<String> getAuthors() {
@@ -32,5 +31,10 @@ public class Book extends Media {
         } else {
             System.out.println("Cannot find the author \"" + author + "\" in the book.");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Book - " + this.getTitle() + " - " + this.getCategory() + ": " + this.getCost() + " $";
     }
 }

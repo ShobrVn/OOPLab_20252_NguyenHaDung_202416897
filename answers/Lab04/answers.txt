@@ -1,0 +1,31 @@
+10.
+- Question: (About equal method) If the passing object is not an instance of Media, what
+happens?
+- If the passing object is not an instance of Media, the overriden method will return false
+immediately. This will prevent a ClassCastException runtime crash and correctly identifying
+that the two objects are not equal.
+
+12.
+- Question: What class should implement the Comparable interface?
+- The abstract Media class should implement Comparable<Media>. Since all items (Books, CDs,
+DVDs) inherit from it, putting it here allows the cart to automatically compare and sort any
+mixture of media types.
+
+- Question: In those classes, how should you implement the compareTo() method be to reflect
+the ordering that we want?
+- Inside Media, the compareTo() method should first compare the titles alphabetically. If the
+titles are the same, it should use an if block to compare their costs in decreasing order and
+return that result instead.
+
+- Question: Can we have two ordering rules of the item (by title then cost and by cost then
+title) if we use this Comparable interface approach?
+- No. The Comparable interface only allows us to define exactly one default sorting rule
+through its single compareTo() method. If we want multiple sorting options that users can
+switch between, we have to use Comparator classes.
+
+- Question: Suppose the DVDs has a different ordering rule from the other media types, that is
+by title, then decreasing length, then cost. How would you modify your code to allow this?
+- Inside the compare() method of the Comparator, if the two titles are equal, I would use
+instance of to check if both items are DigitalVideoDisc. If they are, I cast them to DVDs,
+compare their lengths first in decreasing order, and only compare their costs if the lengths
+match as well.
