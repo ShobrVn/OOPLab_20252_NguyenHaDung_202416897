@@ -10,6 +10,10 @@ public class Store {
         itemsInStore = new ArrayList<>();
     }
 
+    public ArrayList<Media> getItemsInStore() {
+        return itemsInStore;
+    }
+
     public void addMedia(Media media) {
         itemsInStore.add(media);
         System.out.println("The media \"" + media.getTitle() + "\" has been added to the store.");
