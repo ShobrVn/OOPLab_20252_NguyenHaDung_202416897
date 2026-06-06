@@ -9,6 +9,10 @@ public class NumberGrid extends JFrame {
     private JButton btnDelete, btnReset;
     private JTextField tfDisplay;
 
+    public static void main(String[] args) {
+        new NumberGrid();
+    }
+
     public NumberGrid() {
         tfDisplay = new JTextField(10);
         tfDisplay.setComponentOrientation(
@@ -26,10 +30,6 @@ public class NumberGrid extends JFrame {
         setTitle("Number Grid");
         setSize(200, 200);
         setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        new NumberGrid();
     }
 
     void addButtons(JPanel panelButtons) {
