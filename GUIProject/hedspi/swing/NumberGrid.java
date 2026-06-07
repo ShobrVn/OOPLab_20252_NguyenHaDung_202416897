@@ -1,4 +1,4 @@
-package GUIProject.globalict.swing;
+package GUIProject.hedspi.swing;
 
 import javax.swing.*;
 import java.awt.*;
