@@ -1,12 +1,7 @@
 package src.screen;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.util.ArrayList;
-
 import javax.swing.*;
 
 import src.store.Store;
@@ -14,6 +9,19 @@ import src.media.Media;
 
 public class StoreScreen extends JFrame {
     private Store store;
+
+    public StoreScreen(Store store) {
+        this.store = store;
+        Container cp = getContentPane();
+        cp.setLayout(new BorderLayout());
+
+        cp.add(createNorth(), BorderLayout.NORTH);
+        cp.add(createCenter(), BorderLayout.CENTER);
+
+        setVisible(true);
+        setTitle("Store");
+        setSize(1024, 768);
+    }
 
     JPanel createNorth() {
         JPanel north = new JPanel();
