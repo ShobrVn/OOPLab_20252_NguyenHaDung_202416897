@@ -1,5 +1,7 @@
 package src.media;
 
+import src.exception.PlayerException;
+
 public class Track implements Playable {
     private String title;
     private int length;
@@ -17,7 +19,11 @@ public class Track implements Playable {
     }
 
     @Override
-    public void play() {
+    public void play() throws PlayerException {
+        if (this.getLength() <= 0) {
+            throw new PlayerException("ERROR: DVD length is non-positive!");
+        }
+
         System.out.println("Playing track: " + this.getTitle());
         System.out.println("Track length: " + this.getLength());
     }
