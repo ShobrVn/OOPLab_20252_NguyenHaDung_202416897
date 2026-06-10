@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 import src.store.Store;
+import src.media.Book;
+import src.media.CompactDisc;
+import src.media.DigitalVideoDisc;
 import src.media.Media;
 
 public class StoreScreen extends JFrame {
@@ -21,6 +24,27 @@ public class StoreScreen extends JFrame {
         setVisible(true);
         setTitle("Store");
         setSize(1024, 768);
+    }
+    
+    public static void main(String[] args) {
+        Store store = new Store();
+
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
+        store.addMedia(dvd1);
+
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 124, 24.95f);
+        store.addMedia(dvd2);
+
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladdin", "Animation", "John Musker", 90, 18.99f);
+        store.addMedia(dvd3);
+
+        Book book = new Book("The Great Gatsby", "Fiction", 15.5f);
+        store.addMedia(book);
+
+        CompactDisc cd = new CompactDisc("Thriller", "Pop", "Michael Jackson", 42, 12.0f);
+        store.addMedia(cd);
+
+        new StoreScreen(store);
     }
 
     JPanel createNorth() {
@@ -76,7 +100,7 @@ public class StoreScreen extends JFrame {
         center.setLayout(new GridLayout(3, 3, 2, 2));
 
         ArrayList<Media> mediaInStore = store.getItemsInStore();
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < store.getItemsInStore().size(); i++) {
             MediaStore cell = new MediaStore(mediaInStore.get(i));
             center.add(cell);
         }

@@ -9,40 +9,30 @@ import java.util.Collections;
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
-    private int amountOrdered = 0;
 
     public void addMedia(Media media) {
-        if (amountOrdered >= MAX_NUMBERS_ORDERED) {
+        if (itemsOrdered.size() >= MAX_NUMBERS_ORDERED) {
             System.out.println("The cart is full.");
         }
         else {
             itemsOrdered.add(media);
-            amountOrdered++;
             System.out.println("The media \"" + media.getTitle() + "\" has been added.");
-            if (amountOrdered == MAX_NUMBERS_ORDERED - 1) {
+            if (itemsOrdered.size() == MAX_NUMBERS_ORDERED - 1) {
                 System.out.println("The cart is almost full.");
             }
         }
     }
 
     public void removeMedia(Media media) {
-        boolean found = false;
-        for (int i = 0; i < amountOrdered; i++) {
-            if (itemsOrdered.get(i) == media) {
-                found = true;
-                itemsOrdered.remove(i);
-                amountOrdered--;
-                System.out.println("The media \"" + media.getTitle() + "\" has been removed.");
-                break;
-            }
-        }
-        if (!found) {
+        if (itemsOrdered.remove(media)) {
+            System.out.println("The media \"" + media.getTitle() + "\" has been removed.");
+        } else {
             System.out.println("Cannot find the media \"" + media.getTitle() + "\" in the cart.");
         }
     }
 
     public int getAmountOrdered() {
-        return amountOrdered;
+        return itemsOrdered.size();
     }
 
     public ObservableList<Media> getItemsOrdered() {
@@ -51,15 +41,15 @@ public class Cart {
 
     public float totalCost() {
         float total = 0;
-        for (int i = 0; i < amountOrdered; i++) {
-            total += itemsOrdered.get(i).getCost();
+        for (Media media : itemsOrdered) {
+            total += media.getCost();
         }
         return total;
     }
 
     public void displayCart() {
         System.out.println("***********************CART***********************");
-        for (int i = 0; i < amountOrdered; i++) {
+        for (int i = 0; i < itemsOrdered.size(); i++) {
             System.out.println((i + 1) + ". " + itemsOrdered.get(i).toString());
         }
         System.out.println("Total cost: " + totalCost());
@@ -67,31 +57,23 @@ public class Cart {
     }
 
     public void searchById(int id) {
-        boolean found = false;
-        for (int i = 0; i < amountOrdered; i++) {
-            if (itemsOrdered.get(i).getId() == id) {
-                System.out.println("Found Media: " + itemsOrdered.get(i).toString());
-                found = true;
-                break;
+        for (Media media : itemsOrdered) {
+            if (media.getId() == id) {
+                System.out.println("Found Media: " + media.toString());
+                return;
             }
         }
-        if (!found) {
-            System.out.println("No Media found with ID: " + id);
-        }
+        System.out.println("No Media found with ID: " + id);
     }
 
     public void searchByTitle(String title) {
-        boolean found = false;
-        for (int i = 0; i < amountOrdered; i++) {
-            if (itemsOrdered.get(i).isMatch(title)) {
-                System.out.println("Found Media: " + itemsOrdered.get(i).toString());
-                found = true;
-                break;
+        for (Media media : itemsOrdered) {
+            if (media.isMatch(title)) {
+                System.out.println("Found Media: " + media.toString());
+                return;
             }
         }
-        if (!found) {
-            System.out.println("No Media found with title: " + title);
-        }
+        System.out.println("No Media found with title: " + title);
     }
 
     public void sortByTitle() {
@@ -134,6 +116,5 @@ public class Cart {
 
     public void clearCart() {
         itemsOrdered.clear();
-        amountOrdered = 0;
     }
 }

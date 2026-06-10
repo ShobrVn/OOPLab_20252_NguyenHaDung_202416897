@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestCartScreen",
+            "request": "launch",
+            "mainClass": "test.TestCartScreen",
+            "projectName": "OOPLab_20252_NguyenHaDung_202416897_7d3971be"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "GUIProject.hedspi.javafx.Painter",

@@ -116,7 +116,7 @@
                         <Font size="24.0" />
                      </font>
                   </Label>
-                  <Label text="0 $" textFill="AQUA">
+                  <Label fx:id="lblTotalCost" text="0 $" textFill="AQUA">
                      <font>
                         <Font size="24.0" />
                      </font>

@@ -1,5 +1,6 @@
 package src.screen;
 
+import javafx.scene.control.Label;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -11,6 +12,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.collections.ListChangeListener;
 
 import src.cart.Cart;
 import src.media.Media;
@@ -39,6 +41,9 @@ public class CartScreenController {
     private Button btnRemove;
 
     @FXML
+    private Label lblTotalCost;
+
+    @FXML
     private ToggleGroup filterCategory;
 
     public CartScreenController(Cart cart) {
@@ -52,6 +57,7 @@ public class CartScreenController {
         colMediaCategory.setCellValueFactory(new PropertyValueFactory<Media, String>("category"));
         colMediaCost.setCellValueFactory(new PropertyValueFactory<Media, Float>("cost"));
         tblMedia.setItems(this.cart.getItemsOrdered());
+        updateTotalCost();
 
         btnPlay.setVisible(false);
         btnRemove.setVisible(false);
@@ -63,6 +69,10 @@ public class CartScreenController {
                     updateButtonBar(newValue);
                 }
             }
+        });
+
+        this.cart.getItemsOrdered().addListener((ListChangeListener.Change<? extends Media> change) -> {
+            updateTotalCost();
         });
     }
 
@@ -81,11 +91,9 @@ public class CartScreenController {
         
         if (selectedMedia != null && selectedMedia instanceof Playable) {
             try {
-                // 2. Cast to Playable and attempt to execute play logic
                 Playable playableMedia = (Playable) selectedMedia;
                 playableMedia.play();
                 
-                // 3. Display a successful demo notification dialog window
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Playing Media");
                 alert.setHeaderText("Demo Player Application");
@@ -94,8 +102,7 @@ public class CartScreenController {
                 alert.showAndWait();
                 
             } catch (PlayerException e) {
-                // 4. Handle runtime failures cleanly via a visual Error Dialog box
-                System.err.println(e.getMessage()); // Dump trace to terminal
+                System.err.println(e.getMessage());
                 
                 Alert errorAlert = new Alert(AlertType.ERROR);
                 errorAlert.setTitle("Playback Error");
@@ -121,5 +128,10 @@ public class CartScreenController {
         alert.showAndWait();
 
         cart.getItemsOrdered().clear();
+    }
+
+    private void updateTotalCost() {
+        float total = cart.totalCost();
+        lblTotalCost.setText(String.format("%.2f $", total));
     }
 }
