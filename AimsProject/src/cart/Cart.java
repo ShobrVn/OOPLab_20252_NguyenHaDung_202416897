@@ -2,12 +2,13 @@ package src.cart;
 
 import src.media.DigitalVideoDisc;
 import src.media.Media;
-import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import java.util.Collections;
 
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
-    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
     private int amountOrdered = 0;
 
     public void addMedia(Media media) {
@@ -42,6 +43,10 @@ public class Cart {
 
     public int getAmountOrdered() {
         return amountOrdered;
+    }
+
+    public ObservableList<Media> getItemsOrdered() {
+        return itemsOrdered;
     }
 
     public float totalCost() {
